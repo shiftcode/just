@@ -74,6 +74,7 @@ Data based on [available saucelabs test browsers](https://github.com/angus-c/jus
   - [just-remove](#just-remove)
   - [just-union](#just-union)
   - [just-zip-it](#just-zip-it)
+  - [just-mean](#just-mean)
 - [Strings](#strings) ""
   - [just-template](#just-template)
   - [just-truncate](#just-truncate)
@@ -352,24 +353,24 @@ extend(3, {a: 4, b: 5}); // throws
 ```js
 import merge from 'just-merge';
 
-let obj = {a: 3, b: 5};
-merge(obj, {a: 4, c: 8}); // {a: 4, b: 5, c: 8}
+let obj = { a: 3, b: 5 };
+merge(obj, { a: 4, c: 8 }); // {a: 4, b: 5, c: 8}
 obj; // {a: 4, b: 5, c: 8}
 
-let obj = {a: 3, b: 5};
-merge({}, obj, {a: 4, c: 8}); // {a: 4, b: 5, c: 8}
+let obj = { a: 3, b: 5 };
+merge({}, obj, { a: 4, c: 8 }); // {a: 4, b: 5, c: 8}
 obj; // {a: 3, b: 5}
 
 let arr = [1, 2, 3];
-let obj = {a: 3, b: 5};
-merge(obj, {c: arr}); // {a: 3, b: 5, c: [1, 2, 3]}
+let obj = { a: 3, b: 5 };
+merge(obj, { c: arr }); // {a: 3, b: 5, c: [1, 2, 3]}
 arr.push[4];
 obj; // {a: 3, b: 5, c: [1, 2, 3, 4]}
 
-merge({a: 4, b: 5}); // {a: 4, b: 5}
-merge(3, {a: 4, b: 5}); // throws
-merge({a: 4, b: 5}, 3); // throws
-merge({a: 4, b: 5}, {b: 4, c: 5}, 'c'); // throws
+merge({ a: 4, b: 5 }); // {a: 4, b: 5}
+merge(3, { a: 4, b: 5 }); // throws
+merge({ a: 4, b: 5 }, 3); // throws
+merge({ a: 4, b: 5 }, { b: 4, c: 5 }, 'c'); // throws
 ```
 
 ### [just-values](https://www.npmjs.com/package/just-values)
@@ -982,6 +983,22 @@ zip([1, 2], ['a', 'b'], [true, false]); // [[1, 'a', true], [2, 'b', false]]
 zip([1, 2, 3], ['a', 'b'], [true]); // [[1, 'a', true], [2, 'b', undefined], [3, undefined, undefined]]
 zip(undefined, {}, false, 1, 'foo'); // throws
 zip([1, 2], ['a', 'b'], undefined, {}, false, 1, 'foo'); // throws
+```
+
+### [just-mean](https://www.npmjs.com/package/just-mean)
+
+:icecream:[`Try It`](http://anguscroll.com/just/just-mean)
+
+`npm install just-mean`
+
+```js
+import mean from 'just-mean';
+
+mean([1, 2, 3, 2, 4, 1]); // 2.1666666667
+mean(3, 2, 1); // 2
+mean([4]); // 4
+mean(['3', 2]); // throws
+mean(); // throws
 ```
 
 ### Strings
